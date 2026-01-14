@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const data = await req.json();
 
-  const fastApiRes = await fetch("http://127.0.0.1:8000/run", {
+  const fastApiRes = await fetch("http://127.0.0.1:8000/explain", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -12,7 +12,6 @@ export async function POST(req: Request) {
   });
 
   const json = await fastApiRes.json();
-  console.log("FASTAPI RESPONSE:", json);
-  // ✅ Return FastAPI response AS-IS
+
   return NextResponse.json(json);
 }
